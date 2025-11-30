@@ -4,10 +4,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let intentos = 0;
     const maxIntentos = 3;
+    const urlDestino = 'index.html';
 
     const moverBoton = (e) => {
         if (intentos < maxIntentos) {
-            e.preventDefault(); // evita abrir el enlace mientras baila
+            e.preventDefault(); // evita la navegación mientras baila
             const main = boton.closest('main');
             const maxX = main.offsetWidth - boton.offsetWidth;
             const maxY = main.offsetHeight - boton.offsetHeight;
@@ -19,17 +20,18 @@ document.addEventListener('DOMContentLoaded', () => {
             boton.style.top = y + 'px';
             intentos++;
         }
-        // Si intentos >= maxIntentos, no hacemos preventDefault
+        // después de maxIntentos, no se previene nada
     };
 
-    // Evento para mover el botón (mouse + touch)
+    // Mover el botón en desktop y móvil
     boton.addEventListener('pointerdown', moverBoton);
 
-    // Evento click separado para asegurar que el enlace funcione después
+    // Navegación solo después de que termine de bailar
     boton.addEventListener('click', (e) => {
-        if (intentos < maxIntentos) {
-            e.preventDefault(); // bloquea el click mientras baila
+        if (intentos >= maxIntentos) {
+            window.location.href = urlDestino;
+        } else {
+            e.preventDefault(); // bloquea clicks mientras baila
         }
-        // después de los movimientos, el click funciona normalmente
     });
 });
