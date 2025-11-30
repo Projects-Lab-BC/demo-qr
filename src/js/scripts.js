@@ -1,12 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
     const boton = document.getElementById('boton-bailarin');
-    console.log(boton); // debe mostrar el <a> en la consola
-    if (!boton) return; // si no existe, salimos
+    if (!boton) return;
 
     let intentos = 0;
     const maxIntentos = 3;
 
-    function moverBoton() {
+    const moverBoton = () => {
         if (intentos < maxIntentos) {
             const main = boton.closest('main');
             const maxX = main.offsetWidth - boton.offsetWidth;
@@ -19,8 +18,14 @@ document.addEventListener('DOMContentLoaded', () => {
             boton.style.top = y + 'px';
             intentos++;
         }
-    }
+    };
 
+    // Desktop
     boton.addEventListener('mouseover', moverBoton);
-    boton.addEventListener('touchstart', moverBoton);
+
+    // Móvil
+    boton.addEventListener('touchstart', (e) => {
+        e.preventDefault(); // evita abrir el enlace antes de moverse
+        moverBoton();
+    });
 });
