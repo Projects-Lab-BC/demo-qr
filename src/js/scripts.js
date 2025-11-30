@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const moverBoton = () => {
         if (intentos < maxIntentos) {
+            e.preventDefault(); // evita abrir el enlace mientras baila
             const main = boton.closest('main');
             const maxX = main.offsetWidth - boton.offsetWidth;
             const maxY = main.offsetHeight - boton.offsetHeight;
