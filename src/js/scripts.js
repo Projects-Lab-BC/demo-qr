@@ -21,11 +21,14 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // Desktop
-    boton.addEventListener('mouseover', moverBoton);
+    //boton.addEventListener('mouseover', moverBoton);
 
     // Móvil
-    boton.addEventListener('touchstart', (e) => {
-        e.preventDefault(); // evita abrir el enlace antes de moverse
-        moverBoton();
-    });
+    //boton.addEventListener('touchstart', (e) => {
+    //    e.preventDefault(); // evita abrir el enlace antes de moverse
+    //))    moverBoton();
+    //});
+
+    // Captura todos los punteros (mouse, touch, stylus)
+    boton.addEventListener('pointerdown', moverBoton);
 });
