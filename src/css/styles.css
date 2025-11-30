@@ -1,0 +1,24 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #111;
+    color: #eee;
+    text-align: center;
+    padding: 20px;
+}
+
+.button {
+    display: inline-block;
+    margin: 20px 0;
+    padding: 12px 22px;
+    background: #ff4fa3;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+img, video, audio {
+    max-width: 90%;
+    margin: 20px 0;
+    border-radius: 10px;
+}
