@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let intentos = 0;
     const maxIntentos = 3;
 
-    const moverBoton = () => {
+    const moverBoton = (e) => {
         if (intentos < maxIntentos) {
             e.preventDefault(); // evita abrir el enlace mientras baila
             const main = boton.closest('main');
@@ -19,17 +19,17 @@ document.addEventListener('DOMContentLoaded', () => {
             boton.style.top = y + 'px';
             intentos++;
         }
+        // Si intentos >= maxIntentos, no hacemos preventDefault
     };
 
-    // Desktop
-    //boton.addEventListener('mouseover', moverBoton);
-
-    // Móvil
-    //boton.addEventListener('touchstart', (e) => {
-    //    e.preventDefault(); // evita abrir el enlace antes de moverse
-    //))    moverBoton();
-    //});
-
-    // Captura todos los punteros (mouse, touch, stylus)
+    // Evento para mover el botón (mouse + touch)
     boton.addEventListener('pointerdown', moverBoton);
+
+    // Evento click separado para asegurar que el enlace funcione después
+    boton.addEventListener('click', (e) => {
+        if (intentos < maxIntentos) {
+            e.preventDefault(); // bloquea el click mientras baila
+        }
+        // después de los movimientos, el click funciona normalmente
+    });
 });
