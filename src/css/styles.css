@@ -1,24 +1,69 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #111;
-    color: #eee;
-    text-align: center;
-    padding: 20px;
+/* Variables globales */
+:root {
+    --color-principal: #ff4fa3;
+    --color-fondo: #f5f5f5;
+    --fuente-base: Arial, sans-serif;
 }
 
-.button {
-    display: inline-block;
+/* Reset básico */
+body {
+    font-family: var(--fuente-base);
+    background-color: var(--color-fondo);
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/* Encabezado */
+header h1 {
     margin: 20px 0;
-    padding: 12px 22px;
-    background: #ff4fa3;
+    font-size: 2em;
+}
+
+/* Sección media */
+.media-container {
+    margin: 20px auto;
+}
+
+.media-container img {
+    display: block;
+    margin: 20px auto;
+    max-width: 90%;
+    border-radius: 10px;
+}
+
+/* Botón */
+a.button {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 25px;
+    background-color: var(--color-principal);
     color: white;
     text-decoration: none;
     border-radius: 10px;
-    font-size: 20px;
+    font-size: 1.1em;
+    transition: 0.3s;
 }
 
-img, video, audio {
-    max-width: 90%;
-    margin: 20px 0;
-    border-radius: 10px;
+a.button:hover {
+    background-color: #ff78b3;
+}
+
+/* Footer */
+footer {
+    margin: 30px 0;
+    font-size: 0.9em;
+    color: #555;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .media-container img {
+        max-width: 100%;
+    }
+
+    a.button {
+        font-size: 1em;
+        padding: 10px 20px;
+    }
 }
