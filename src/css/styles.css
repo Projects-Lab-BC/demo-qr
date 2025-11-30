@@ -49,6 +49,18 @@ a.button:hover {
     background-color: #ff78b3;
 }
 
+.button#boton-bailarin {
+    position: absolute; /* obligatorio */
+    left: 50%;
+    top: 60%;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+}
+main {
+    position: relative; /* el contenedor para movimiento */
+    height: 80vh;
+}
+
 /* Footer */
 footer {
     margin: 30px 0;
