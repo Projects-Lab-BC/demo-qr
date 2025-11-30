@@ -4,11 +4,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let intentos = 0;
     const maxIntentos = 3;
-    const urlDestino = 'index.html';
+    const urlDestino = 'index.html'; // Página a la que vamos
 
     const moverBoton = (e) => {
+        // Solo mover mientras queden intentos
         if (intentos < maxIntentos) {
-            e.preventDefault(); // evita la navegación mientras baila
+            e.preventDefault(); // bloquea el enlace mientras baila
             const main = boton.closest('main');
             const maxX = main.offsetWidth - boton.offsetWidth;
             const maxY = main.offsetHeight - boton.offsetHeight;
@@ -20,18 +21,24 @@ document.addEventListener('DOMContentLoaded', () => {
             boton.style.top = y + 'px';
             intentos++;
         }
-        // después de maxIntentos, no se previene nada
     };
 
-    // Mover el botón en desktop y móvil
+    // Movimiento: pointer cubre mouse y touch
     boton.addEventListener('pointerdown', moverBoton);
 
-    // Navegación solo después de que termine de bailar
+    // Redirección: click controlado por JS
     boton.addEventListener('click', (e) => {
+        e.preventDefault(); // bloqueamos navegación por defecto
+        if (intentos >= maxIntentos) {
+            window.location.href = urlDestino; // redirige manualmente
+        }
+        // si aún baila, no hace nada
+    });
+
+    // Extra: soporte táctil en móviles que no disparan click tras preventDefault
+    boton.addEventListener('touchend', (e) => {
         if (intentos >= maxIntentos) {
             window.location.href = urlDestino;
-        } else {
-            e.preventDefault(); // bloquea clicks mientras baila
         }
     });
 });
