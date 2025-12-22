@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Contacto</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="src/css/styles.css">
+</head>
+<body>
+
+  <h2>Contacto</h2>
+
+  <form id="contact-form">
+    <input type="text" id="name" placeholder="Tu nombre" required>
+    <input type="email" id="email" placeholder="Tu correo" required>
+    <textarea id="message" placeholder="Escribe tu mensaje..." required></textarea>
+    <button type="submit">Enviar</button>
+  </form>
+
+  <p id="status"></p>
+
+  <!-- Supabase -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="src/js/contact.js"></script>
+
+</body>
+</html>
